@@ -1,0 +1,26 @@
+main{
+    text-align: left;
+    display: flex;
+    justify-content: space-around;
+}
+nav{
+    
+    padding-top: 10px;
+    width: 430px;
+    height: 370px;
+    border: 2px solid black;
+}
+.div{
+    width: 300px;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+#button{
+    text-align: right;
+    margin-right: 20px;
+    margin-top: 100px;
+}
+h1{
+    margin-left: 10px;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style2.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='JS/functions.js') }}"></script>
+    <title>Document</title>
+</head>
+<main>
+<nav>
+<body>
+    <h1>Submitted Info</h1> 
+    <div class="div"><h4>Name: </h4><h4>{{session['name']}}</h4> </div>
+    <div class="div"><h4>Dojo Loctaion: </h4><h4>{{session['dojo']}}</h4></div>
+    <div class="div"><h4>Favorite Language: </h4><h4>{{session['favorite']}}</h4> </div>
+    <div class="div"><h4>Comment: </h4><h4>{{session['comment']}}</h4></div>
+    <div id="button"><button onclick="goBack()">Go Back</button></div>
+</body>
+</nav>
+</main>
+
+</html>

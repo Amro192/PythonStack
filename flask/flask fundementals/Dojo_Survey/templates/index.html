@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='JS/functions.js') }}"></script>
+</head>
+<body>
+    <main>
+    <nav>   
+    <form action="/results" method="post">
+    Your Name: <input type="text" name="namee" id="username"> <br><br>
+
+    Dojo Location:  <label for="location"></label> 
+                    <select name="dojoo" id="userdojo" >
+                    <option value="Gaza">Gaza</option>
+                    <option value="Ramallah">Ramallah</option>
+                    <option value="Jerusalem" >Jerusalem</option>
+                    <option value="Hebron">Hebron</option> 
+                    </select><br><br>
+
+    Favorite Language:<label for="language"></label> 
+                    <select name="languagee" id="userlanguage" >
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="C++" >C++</option>
+                    </select><br><br>
+
+    Comment: <br> <input type="text" name="comments" id="com"><br><br>
+
+    <input type="submit" value="Button" id="button">
+
+    
+    </form>
+</nav> 
+</main>
+</body>
+</html>
