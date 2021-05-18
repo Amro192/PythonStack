@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">    
+    <script src="{% static 'js/script.js' %}"></script>
+    <title>Document</title>
+</head>
+<main>
+<nav>
+<body>
+    <h1>Submitted Info</h1> 
+    <div class="div"><h4>Name: </h4><h4>{{request.session.namee}}</h4> </div>
+    <div class="div"><h4>Dojo Loctaion: </h4><h4>{{request.session.dojoo}}</h4></div>
+    <div class="div"><h4>Favorite Language: </h4><h4>{{request.session.languagee}}</h4> </div>
+    <div class="div"><h4>Comment: </h4><h4>{{request.session.comments}}</h4></div>
+    <div id="button"><button onclick="goBack()">Go Back</button></div>
+</body>
+</nav>
+</main>
+
+</html>
