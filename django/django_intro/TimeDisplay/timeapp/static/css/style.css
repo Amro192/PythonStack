@@ -1,0 +1,17 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+h3{
+    margin-left: 85px ;
+    width: 300px;
+    height: 40px;
+    border: 3px solid black;
+    text-align: center;
+}
+h1{
+    width: 500px;
+    height: 100px;
+    border: 3px solid black;
+    text-align: center;
+}
