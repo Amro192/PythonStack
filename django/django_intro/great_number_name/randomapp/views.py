@@ -18,7 +18,6 @@ def randInt(request,min =0, max=100):
         print(request.session['num2'])
         print(request.session['num1'])
 
-
         if request.session['num2'] == request.session['num1']:
             request.session['flag'] = 1
             del request.session['num1']
