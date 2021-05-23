@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gold_project</title>
+    <style>
+        .counter{
+            display: flex;
+            justify-content: space-between;
+
+            
+        }
+        .types{
+            background-color: rgb(151, 151, 156);
+            width: 100%;
+            height: 200px;
+            margin: 10px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            overflow: scroll;
+            width: 100%;
+            height: 100px;
+            overflow-x: hidden;
+        }
+       
+
+    </style>
+</head>
+<body>
+    <h1>Your gold : {{request.session.your_gold}}  </h1>
+    <div class="counter" >
+
+        <div class="types">
+            <h1> Farm </h1>
+            <h4>(earm 10-20 golds)</h4>
+            
+
+            <form action="/show" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="bild" value="Farm">
+            <input type="submit">
+            </form>
+
+        </div>
+        <div class="types">
+            <h1> Cave </h1>
+            <h4>(earm 5-10 golds)</h4>
+            <form action="/show" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="bild" value="Cave">
+            <input type="submit">
+        </form>
+        </div>
+        <div class="types">
+            <h1> House </h1>
+            <h4>(earm 2-5 golds)</h4>
+            <form action="/show" m method="post">
+            {% csrf_token %}
+            <input type="hidden" name="bild" value="House">
+            <input type="submit">
+        </form>
+
+        </div>
+        <div class="types">
+            <h1> Casino </h1>
+            <h4>(earm/takes 0-50 golds)</h4>
+            <form action="/show" method="post">
+             {% csrf_token %}
+             <input type="hidden" name="bild" value="Casino">
+            <input type="submit">
+        </form> 
+
+        </div>
+        
+    </div>
+    <h2> Activates:  {{request.session.activate }}</h2>
+    <p> </p>
+</html>
