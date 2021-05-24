@@ -1,0 +1,8 @@
+#main{
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+#lastmain{
+    text-align: center;
+}

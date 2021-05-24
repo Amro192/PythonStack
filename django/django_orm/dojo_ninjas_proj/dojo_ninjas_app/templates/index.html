@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+    <script src="{% static 'js/script.js' %}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <main id="main">
+    <div>
+        <h1>Add a dojo</h1>
+        <form action="/show" method="post">
+            {%csrf_token%}
+            Name:  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="name"><br>
+            City:  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="city"><br>
+            State:  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="state"><br>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+    <div>
+        <h1>Add a ninja</h1>
+        <form action="/show2" method="POST">
+            {%csrf_token%}
+        First Name:  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="first_name"><br>
+        Last Name:   <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="last_name"><br>
+        Dojo: <select class="custom-select" id="inputGroupSelect01" name="selects">
+                {% for dojos in all_dojos %}
+                    <option value={{dojos.id}}>{{dojos.name}}</option>
+                {% endfor %}
+            </select> <br><br>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+    </main>
+    <br><br>
+    <main id="lastmain">
+        <h1>All the dojos</h1> <br>
+        {% for dojos in all_dojos %}
+        <h4>Ninja at the {{ dojos.name }} Dojo</h4>
+        {%for ninjas in dojos.the_dojos.all %} 
+        <ul>
+            <li><h5>{{ninjas.first_name}} {{ninjas.last_name}}</h5></li>
+
+        </ul>  
+        {%endfor%}
+        {% endfor %}
+        
+    </main>
+
+</body>
+</html>

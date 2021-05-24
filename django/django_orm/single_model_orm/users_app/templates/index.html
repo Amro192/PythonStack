@@ -32,7 +32,7 @@
             {% endfor %}
         </tbody>
     </table>
-    <form action="/add" method="post">
+    <form action="add" method="post">
     {% csrf_token %}
 
     First Name:<input type="text" name="firstname" placeholder="Your First Name">

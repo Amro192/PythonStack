@@ -1,0 +1,41 @@
+x = dojos.objects.get(id=1)
+
+In [3]: y = dojos.objects.get(id=2)
+
+In [4]: z = dojos.objects.get(id=3)
+
+In [5]: x.delete()
+Out[5]: (1, {'dojo_ninjas_app.ninjas': 0, 'dojo_ninjas_app.dojos': 1})
+
+In [6]: y.delete()
+Out[6]: (1, {'dojo_ninjas_app.ninjas': 0, 'dojo_ninjas_app.dojos': 1})
+
+In [7]: z.delete()
+Out[7]: (1, {'dojo_ninjas_app.ninjas': 0, 'dojo_ninjas_app.dojos': 1})
+dojos.objects.all()
+Out[8]: <QuerySet []>
+
+In [9]: dojos.objects.create(name='donjos', city = 'Jerusalem', state='JE')
+Out[9]: <dojos: dojos object (4)>
+
+In [10]: dojos.objects.create(name='donjos hebron', city = 'hebron', state='HE')
+Out[10]: <dojos: dojos object (5)>
+
+In [11]: dojos.objects.create(name='donjos tulkarem', city = 'Tulkarem', state='HE')
+Out[11]: <dojos: dojos object (6)>
+[13]: dojoone = dojos.objects.get(id=4)
+
+In [14]: dojotow = dojos.objects.get(id=5)
+
+In [15]: dojothree = dojos.objects.get(id=6)
+ ninjaas = ninjas.objects.filter(dojo=dojos.objects.get(id=4))
+
+In [33]: ninjaas.all().values()
+Out[33]: <QuerySet [{'id': 1, 'first_name': 'ninja1', 'dojo_id': 4, 'last_name': 'mohammad'}]>
+
+In [34]: ninjaas = ninjas.objects.filter(dojo=dojos.objects.get(id=5))
+
+In [35]: ninjaas.all().values()
+Out[35]: <QuerySet [{'id': 2, 'first_name': 'ninja2', 'dojo_id': 5, 'last_name': 'mohammad'}]>
+
+In [36]: dojo.objects.create(name='ABY', city='Jalil', state='PS')
