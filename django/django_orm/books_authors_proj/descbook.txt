@@ -1,0 +1,46 @@
+1- 
+C_Sharp = Books.objects.create(title='C Sharp', desc='program language' )
+Java = Books.objects.create(title='Java', desc='program language' )
+..
+
+2-
+Jane_Austen = Authors.objects.create(first_name='Jane' , last_name='Austen)
+Emily Dickinson = Authors.objects.creat(first_name = 'Emily' , last_name = 'Dickinson')
+
+3-
+x=Books.objects.get(id=1)
+x.title = 'C#'
+x.save()
+
+...
+
+4-
+2]: Fyodor_Dostoevsky = Authors.objects.get(id=3)
+
+In [23]: Fyodor_Dostoevsky.author.add(Ruby)
+
+In [24]: Fyodor_Dostoevsky.author.add(PHP)
+
+In [25]: Fyodor_Dostoevsky.author.add(Python)
+
+In [26]: Fyodor_Dostoevsky.author.add(Java)
+
+...
+
+5-
+x.publishers.all()
+ <QuerySet [<Authors: Authors object (2)>, <Authors: Authors object (3)>, <Authors: Authors object (4)>]>
+
+6-
+x = Books.objects.get(id=3)
+y = x.publishers.first()
+ y . delete()
+
+7-
+x.author.all()
+<QuerySet [<Books: Books object (1)>, <Books: Books object (2)>, 
+<Books: Books object (3)>, <Books: Books object (4)>]>
+
+8-
+ x.publishers.all()
+ <QuerySet []>
