@@ -17,3 +17,21 @@ class Authors(models.Model):
     notes = models.TextField(max_length=255,default="")
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
+
+def create_book(title,desc):
+    new_book=Books.objects.create(title=title,desc=desc)
+    return new_book
+
+def create_author(first_name,last_name,notes):
+    new_author=Authors.objects.create(first_name=first_name,last_name=last_name,notes=notes)
+    return new_author
+
+def allbooks():
+    return Books.objects.all()
+def getBook(id):
+    return Books.objects.get(id=id)
+def getAuthor(id):
+    return Authors.objects.get(id=id)
+def allAuthors():
+    return Authors.objects.all()
+

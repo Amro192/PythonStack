@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body style="display: flex; justify-content: space-around;">
+    <div style="width: 350px; height: 200px; margin-left:100px; margin-top: 100px;">
+    <h1>Add a Book</h1>
+    <form action="/books" method="post">
+        {% csrf_token %}
+    Title <input type="text" name="title" class="form-control" aria-label="Username" aria-describedby="basic-addon1"> <br>
+    Description<textarea name="desc" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> <br>
+    <button type="submit" class="btn btn-outline-dark">Add</button>
+    </form>
+    </div>
+    <div style="width: 350px; margin-right: 100px; margin-top: 100px;">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for book in all_books %}
+            <tr>                
+                <th scope="row">{{book.id}}</th>
+                <td>{{book.title}}</td>
+                <td><a href="http://localhost:8000/books/{{book.id}}" class="badge badge-info">View</a></td>
+            </tr>
+                {% endfor %}
+    </div>
+</body>
+</html>

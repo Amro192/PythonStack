@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body style="padding-left: 100px; padding-top: 80px;">
+
+    <h1>{{thisAuthor.first_name}} {{thisAuthor.last_name}}</h1><br><br>
+    <h4>ID: {{thisAuthor.id}}</h4><br>
+    <h4>Notes:</h4><h5> {{thisAuthor.notes}}</h5><br>
+    <h4>Books</h4>
+    <ul>
+        {% for book in thisAuthor.author.all %}
+        <li>{{book.title}}</li>
+        {% endfor %}
+    </ul>
+    <form action="authorsadd/{{thisAuthor.id}}" method="post">
+    {%csrf_token%}
+    <select name="selected_book" class="form-select form-select-sm" aria-label=".form-select-sm example">
+        {% for book in all_books %}
+        <option value='{{book.id}}'>{{book.title}}</option>
+        {% endfor %}
+    </select>
+    <button style="margin-left: 10px;" type="submit" class="btn btn-outline-dark">Add</button>
+</form>
+</body>
+</html>
