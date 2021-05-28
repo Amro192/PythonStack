@@ -8,8 +8,9 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>All show</title>
 </head>
-<body>
-    <div style="width: 500px; height: 150px;">
+<body style="padding-left: 100px;">
+    <div style="width: 900px; height: 150px;">
+        <h1>All Shows</h1> <br>
     <table style="border-style:solid;" class="table table-striped">
         <thead>
         <tr>
@@ -21,16 +22,22 @@
         </tr>
         </thead>
         <tbody>
+            {% for shows in allshows %}
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Mark</td>
-            <td>Mark</td>
-            <td>Mark</td>
             
+            <th scope="row">{{shows.id}}</th>
+            <td>{{shows.Title}}</td>
+            <td>{{shows.Network}}</td>
+            <td>{{shows.Release_date}}</td>
+            <td><a href="http://localhost:8000/show/{{shows.id}}" class="badge badge-info">Show</a> |
+                <a href="http://localhost:8000/shows/{{shows.id}}/edit" class="badge badge-info">Edit</a> |
+                <a href="http://localhost:8000/delete/{{shows.id}}" class="badge badge-info">Delete</a>
+            </td>
         </tr>
+        {% endfor %}
     </table>
-    </div>
-    <a href="">Add A new Show</a>
+    <a href="http://localhost:8000/shows/new">Add A new Show</a>
+    </div> 
+    
 </body>
 </html>

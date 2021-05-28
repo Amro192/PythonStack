@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Document</title>
 </head>
-<body>
-    <h1>Tv Show 2</h1>
-    Title: {{ y.name }}
-    Network: {{  }}
-    Release Date: {{  }}
-    Description {{  }} <br> <br> <br> <br> <br> <br>
-
-
-
-
-    Last update:
+<body style="padding-left: 100px; padding-top: 100px;">
+    <form action="/show" method="post">
+    <h1>Tv Show 2</h1> <div><a href="http://localhost8000/shows"></a></div> <br>
+    Title: {{ current_show.Title }} <br>
+    Network: {{ current_show.Network }} <br>
+    Release Date: {{ current_show.Release_date }} <br>
+    Description: {{ current_show.Description }} <br> <br> <br>  
+    Last update:{{current_show.updated_at}} <br>
+    
+    <a href="http://localhost:8000/shows/{{current_show.id}}/edit" class="badge badge-info">Edit</a> |
+    <a href="http://localhost:8000/delete/{{current_show.id}}" class="badge badge-info">Delete</a>
+    </form>
 </body>
 </html>

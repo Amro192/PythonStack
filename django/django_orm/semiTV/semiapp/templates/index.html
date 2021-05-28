@@ -12,21 +12,21 @@
     <div  style="text-align: left;">
         <center>
         <h1>Add a New Show</h1> 
-        <form action="/add" method="get">
+        <form action="/add" method="post">
             {% csrf_token %}
 
-        Title <br>
-        <input name="title" style="width: fit-content;" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
-        Network
-        <input name="net" style="width: fit-content;" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
-        Release date <input name="release" style="width: auto;" class="form-control" type="date" value="" id="example-datetime-local-input">
+            Title <br>
+            <input name="title" style="width: fit-content;" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+            Network
+            <input name="net" style="width: fit-content;" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+            Release date <input name="release" style="width: auto;" class="form-control" type="date" value="" id="example-datetime-local-input">
 
-        Description 
-    <textarea name="desc" style="width: fit-content;" class="form-control" aria-label="With textarea"></textarea><br>
-    <button type="submit" class="btn btn-outline-dark">Create</button>
-    </form>
-    </div>
-    </center>
+            Description 
+        <textarea name="desc" style="width: fit-content;" class="form-control" aria-label="With textarea"></textarea><br>
+        <button type="submit" class="btn btn-outline-dark">Create</button>
+        </form>
+        </div>
+        </center>
     </div>
 </body>
 </html>

@@ -5,7 +5,6 @@ def index(request):
     if "your_gold" not in request.session or "activate" not in request.session:
         request.session['your_gold']= 0 
         request.session['activate']= []
-   
     return render(request, "index.html")
 
 
