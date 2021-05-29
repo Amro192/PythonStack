@@ -5,7 +5,7 @@ class BlogManager(models.Manager):
     def strc_validator(self, postData):
         errors = {}
         
-        if len(postData['title']) < 2:
+        if len(postData["title"]) < 2:
             errors["title"] = "Show Title should be at least 2 characters"
         if len(postData['net']) < 3:
             errors["net"] = "Show Network should be at least 3 characters"
@@ -41,5 +41,4 @@ def updateshows(id,Title,Network,Release_date,Desciption):
     updatetheshow.Desciption=Desciption
     updatetheshow.save()
 
-def erorr(postData):
-    return TV.objects.strc_validator(postData)
+

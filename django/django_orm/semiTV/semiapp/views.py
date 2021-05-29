@@ -1,8 +1,9 @@
 
 from django.shortcuts import redirect, render
-from .models import *
 from . import models
+from .models import *
 from django.contrib import messages
+
 
 def index(request):
     return render(request,'index.html')
@@ -42,17 +43,19 @@ def updateshow(request,id):
     #     Description=request.POST['desc']
     # updateshows(id,Title,Network,Release_date,Description)
 
-    errors = models.erorr(request.POST)
+    errors = TV.objects.strc_validator(request.POST)
+    print(errors)
     if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value)
-        return redirect('/edit/'+id)
+        return redirect('/shows/'+str(id)+'/edit')
     else:
         blog = TV.objects.get(id = id)
         blog.Title = request.POST['title']
         blog.Network = request.POST['net']
         blog.Description = request.POST['desc']
         blog.save()
+        updateshows(request.POST['title'], request.POST['net'],request.POST["release"], request.POST['desc'])
         messages.success(request, "Show successfully updated")
     return redirect ('/shows')
 

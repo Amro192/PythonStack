@@ -11,30 +11,27 @@
 <body>
     <div  style="text-align: left;">
         <center>
-        <h1>Edit Show 2</h1> 
+            <h1>Edit Show 2</h1> 
             {% if messages %}
-            <ul class="messages">    
-            {% for message in messages %}    
-                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
-            {% endfor %}
-            </ul>
-        {% endif %}
-        <form action="/edit/{{current_show.id}}" method="post">
-            {% csrf_token %}
-        Title <br>
-        <input style="width: fit-content;" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" name="title">
-        Network
-        <input style="width: fit-content;" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" name="net">
-        Release date <input style="width: auto;" class="form-control" type="date" value="" id="example-datetime-local-input" name="release">
-
-        Description 
-    <textarea style="width: fit-content;" class="form-control" aria-label="With textarea" name="desc"></textarea><br>
-    <button type="submit" class="btn btn-outline-dark">Update</button> <br><br>
-    
-    <a style="height: 25px; padding-top: 5px;" href="http://localhost:8000/show/{{current_show.id}}" class="badge badge-info">Go to Show</a> 
-    
-    </form>
-    </div>
+                <ul class="messages">    
+                    {% for message in messages %}    
+                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <form action="/edit/{{current_show.id}}" method="post">
+                {% csrf_token %}
+                Title
+                <input style="width: fit-content;" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" name="title">
+                Network
+                <input style="width: fit-content;" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" name="net">
+                Release date <input style="width: auto;" class="form-control" type="date" value="" id="example-datetime-local-input" name="release">
+                Description 
+                <textarea style="width: fit-content;" class="form-control" aria-label="With textarea" name="desc"></textarea><br>
+                <button type="submit" class="btn btn-outline-dark">Update</button> <br><br>
+                <a style="height: 25px; padding-top: 5px;" href="http://localhost:8000/show/{{current_show.id}}" class="badge badge-info">Go to Show</a> 
+            </form>
+        </div>
     </center>
     </div>
 </body>
