@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="display: flex; width: 1400px; justify-content: space-around;">
+    <div>
+        <h1>Registration</h1>
+        {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="/reg" method="post">
+            {% csrf_token %}
+            First Name <input type="text" name="first" placeholder="First Name"> <br>
+            Last Name <input type="text" name="last" placeholder="Last Name"> <br>
+            Email <input type="email" name="email" placeholder="Email"> <br>
+            Password <input type="password" name="passwod" placeholder="Password"> <br>
+            Confirm Password <input type="password" name="cpw" placeholder="Confirm Password"> <br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <div style="float: right;">
+        <h1>Login</h1>
+        {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="/log" method="post">
+            {% csrf_token %}
+            Email <input type="email" name="email" placeholder="Email"> <br>
+            Password <input type="password" name="passwod" placeholder="Password"><br>
+            <input type="submit" value="Log In"> 
+        </form>
+    </div>
+</body>
+</html>
