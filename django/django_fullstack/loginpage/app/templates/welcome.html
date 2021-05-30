@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section1 Welcome page</title>
+</head>
+<body>
+        <h1>CodingDojo Wall</h1>
+        <p>welcome {{request.session.first_name}}</p>
+        <a href="/logout">logout</a>
+        </div>
+        <hr>
+        
+        <form action='/addmessage/{{request.session.id}}' method="POST">
+    
+            {% csrf_token %}
+            <textarea name="message" rows="4" cols="50" >{{  this_show.description }}</textarea><br>
+    
+            <button type="submit">post massege</button>
+        </form>
+        {%for message in messages%}
+        <h4>{{message.user_id.first_name}}- {{message.creat_at}} </h4>
+        <p>{{message.messages}}</p>
+        {%for comment in message.comments.all%}
+        <h4>{{comment.user_id.first_name}} {{comment.creat_at}} </h4>
+        <p>this comment {{comment.comment}}</p>
+        {%endfor%}
+
+        <p></p>
+        <form action='/addcomment/{{message.id}}/{{request.session.id}}' method="POST">
+    
+            {% csrf_token %}
+            <textarea name="comment" rows="4" cols="50" >{{  this_show.description }}</textarea><br>
+    
+            <button type="submit">post comment</button>
+        </form>
+
+        <br><br>
+    
+        {%endfor%}
+
+</body>
+</html>
